@@ -1,290 +1,320 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sistema Horas Extras</title>
 
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    *{
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
+<title>Sistema Horas Extras</title>
 
-    body{
-      margin:0;
-      padding:30px;
-      background:#f3f4f6;
-    }
+<style>
 
-    .container{
-      max-width:1100px;
-      margin:auto;
-      background:white;
-      padding:30px;
-      border-radius:12px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    }
+*{
+box-sizing:border-box;
+font-family:Arial;
+}
 
-    h1{
-      color:#166534;
-      margin-bottom:25px;
-    }
+body{
+margin:0;
+padding:30px;
+background:#f3f4f6;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-    }
+.container{
+max-width:1100px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
 
-    .field{
-      display:flex;
-      flex-direction:column;
-    }
+h1{
+color:#166534;
+margin-bottom:25px;
+}
 
-    label{
-      margin-bottom:8px;
-      font-weight:bold;
-      color:#374151;
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
 
-    input,
-    select{
-      padding:12px;
-      border:1px solid #d1d5db;
-      border-radius:8px;
-      font-size:14px;
-    }
+.field{
+display:flex;
+flex-direction:column;
+}
 
-    .fixed{
-      background:#ecfdf5;
-    }
+label{
+margin-bottom:8px;
+font-weight:bold;
+}
 
-    button{
-      margin-top:30px;
-      padding:14px 24px;
-      border:none;
-      border-radius:8px;
-      background:#15803d;
-      color:white;
-      font-size:16px;
-      font-weight:bold;
-      cursor:pointer;
-    }
+input,
+select{
+padding:12px;
+border:1px solid #ccc;
+border-radius:8px;
+}
 
-    button:hover{
-      background:#166534;
-    }
+.fixed{
+background:#dcfce7;
+}
 
-  </style>
+button{
+margin-top:30px;
+padding:14px 24px;
+background:#15803d;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+}
+
+button:hover{
+background:#166534;
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <div class="container">
-
-    <h1>Sistema de Horas Extras</h1>
-
-    <div class="grid">
-
-      <div class="field">
-        <label>DNI</label>
-        <input type="text" id="dni" maxlength="8">
-      </div>
+<div class="container">
 
-      <div class="field">
-        <label>Apellido Paterno</label>
-        <input type="text" id="apellidoPaterno">
-      </div>
+<h1>Sistema Horas Extras</h1>
 
-      <div class="field">
-        <label>Apellido Materno</label>
-        <input type="text" id="apellidoMaterno">
-      </div>
+<div class="grid">
+
+<div class="field">
+<label>DNI</label>
+<input type="text" id="dni">
+</div>
 
-      <div class="field">
-        <label>Nombres</label>
-        <input type="text" id="nombres">
-      </div>
+<div class="field">
+<label>Apellido Paterno</label>
+<input type="text" id="apellidoPaterno">
+</div>
 
-      <div class="field">
-        <label>Campaña</label>
-        <input 
-          type="text"
-          class="fixed"
-          value="CLARO MASIVO HFC - TECNICO"
-          readonly
-        >
-      </div>
+<div class="field">
+<label>Apellido Materno</label>
+<input type="text" id="apellidoMaterno">
+</div>
 
-      <div class="field">
-        <label>Ejecutivo</label>
-        <input
-          type="text"
-          class="fixed"
-          value="VELASQUEZ SULLON SHERLEY JUSSELI"
-          readonly
-        >
-      </div>
+<div class="field">
+<label>Nombres</label>
+<input type="text" id="nombres">
+</div>
 
-      <div class="field">
-        <label>Supervisor</label>
+<div class="field">
+<label>Campaña</label>
+<input
+class="fixed"
+type="text"
+value="CLARO MASIVO HFC - TECNICO"
+readonly>
+</div>
 
-        <select id="supervisor">
+<div class="field">
+<label>Ejecutivo</label>
+<input
+class="fixed"
+type="text"
+value="VELASQUEZ SULLON SHERLEY JUSSELI"
+readonly>
+</div>
 
-          <option value="">Seleccione</option>
+<div class="field">
+<label>Supervisor</label>
 
-          <option>
-            ROLDAN BARRIGA ORIS ANYERLIN
-          </option>
+<select id="supervisor">
 
-          <option>
-            MARIA FERNANDA VINCES LALUPU
-          </option>
+<option value="">
+Seleccione
+</option>
 
-        </select>
-      </div>
+<option>
+ROLDAN BARRIGA ORIS ANYERLIN
+</option>
 
-      <div class="field">
-        <label>Condición</label>
+<option>
+MARIA FERNANDA VINCES LALUPU
+</option>
 
-        <select id="condicion">
+</select>
 
-          <option value="">Seleccione</option>
-          <option>PART TIME</option>
-          <option>FULL TIME</option>
+</div>
 
-        </select>
-      </div>
+<div class="field">
+<label>Condición</label>
 
-      <div class="field">
-        <label>Fecha</label>
-        <input type="date" id="fecha">
-      </div>
+<select id="condicion">
 
-      <div class="field">
-        <label>Hora Inicio</label>
-        <input type="time" id="horaInicio">
-      </div>
+<option value="">
+Seleccione
+</option>
 
-      <div class="field">
-        <label>Hora Fin</label>
-        <input type="time" id="horaFin">
-      </div>
+<option>
+PART TIME
+</option>
 
-      <div class="field">
-        <label>Pago por Hora</label>
-        <input type="number" id="pagoHora" step="0.01">
-      </div>
+<option>
+FULL TIME
+</option>
 
-      <div class="field">
-        <label>OBS</label>
+</select>
 
-        <select id="obs">
+</div>
 
-          <option value="">Seleccione</option>
-          <option>COMPRA DE BREAK</option>
-          <option>HORARIO REDUCIDO</option>
+<div class="field">
+<label>Fecha</label>
+<input type="date" id="fecha">
+</div>
 
-        </select>
-      </div>
+<div class="field">
+<label>Hora Inicio</label>
+<input type="time" id="horaInicio">
+</div>
 
-    </div>
+<div class="field">
+<label>Hora Fin</label>
+<input type="time" id="horaFin">
+</div>
 
-    <button onclick="guardarDatos()">
-      Guardar Registro
-    </button>
+<div class="field">
+<label>Pago por Hora</label>
+<input type="number" id="pagoHora">
+</div>
 
-  </div>
+<div class="field">
+<label>OBS</label>
 
-  <script>
+<select id="obs">
 
-    const API_URL =
-    "https://script.google.com/macros/s/AKfycbzNEvJk2IhFF1ayxZPobMsT5s1BJMTS6QwCqQz22Nm3GnKhleXxfWAhIalQhOXi5hjS/exec";
+<option value="">
+Seleccione
+</option>
 
-    async function guardarDatos() {
+<option>
+COMPRA DE BREAK
+</option>
 
-      const datos = {
+<option>
+HORARIO REDUCIDO
+</option>
 
-        dni:
-          document.getElementById("dni").value,
+</select>
 
-        apellidoPaterno:
-          document.getElementById("apellidoPaterno").value,
+</div>
 
-        apellidoMaterno:
-          document.getElementById("apellidoMaterno").value,
+</div>
 
-        nombres:
-          document.getElementById("nombres").value,
+<button onclick="guardarDatos()">
+Guardar Registro
+</button>
 
-        supervisor:
-          document.getElementById("supervisor").value,
+</div>
 
-        condicion:
-          document.getElementById("condicion").value,
+<script>
 
-        fecha:
-          document.getElementById("fecha").value,
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzNEvJk2IhFF1ayxZPobMsT5s1BJMTS6QwCqQz22Nm3GnKhleXxfWAhIalQhOXi5hjS/exec";
 
-	horaInicio:
-	  document.getElementById("HoraInicio").value,
+async function guardarDatos(){
 
-	horaFin:
-	  document.getElementById("horaFin").value,
+const datos = {
 
-        pagoHora:
-          document.getElementById("pagoHora").value,
+dni:
+document.getElementById("dni").value,
 
-        obs:
-          document.getElementById("obs").value
+apellidoPaterno:
+document.getElementById("apellidoPaterno").value,
 
-      };
+apellidoMaterno:
+document.getElementById("apellidoMaterno").value,
 
-      try {
+nombres:
+document.getElementById("nombres").value,
 
-        const respuesta = await fetch(API_URL, {
+supervisor:
+document.getElementById("supervisor").value,
 
-          method: "POST",
+condicion:
+document.getElementById("condicion").value,
 
-          body: JSON.stringify(datos)
+fecha:
+document.getElementById("fecha").value,
 
-        });
+horaInicio:
+document.getElementById("horaInicio").value,
 
-        const resultado = await respuesta.json();
+horaFin:
+document.getElementById("horaFin").value,
 
-        if(resultado.resultado === "ok"){
+pagoHora:
+document.getElementById("pagoHora").value,
 
-          alert("Registro guardado correctamente");
+obs:
+document.getElementById("obs").value
 
-          document.querySelectorAll("input").forEach(input => {
+};
 
-            if(!input.readOnly){
+try{
 
-              input.value = "";
-            }
-          });
+const respuesta = await fetch(API_URL, {
 
-          document.querySelectorAll("select").forEach(select => {
+method:"POST",
 
-            select.selectedIndex = 0;
-          });
+body:JSON.stringify(datos)
 
-        }else{
+});
 
-          alert("Error al guardar");
-        }
+const resultado =
+await respuesta.json();
 
-      } catch(error){
+if(resultado.resultado === "ok"){
 
-        console.error(error);
+alert("Registro guardado");
 
-        alert("Error de conexión");
-      }
-    }
+document
+.querySelectorAll("input")
+.forEach(input => {
 
-  </script>
+if(!input.readOnly){
+
+input.value = "";
+}
+
+});
+
+document
+.querySelectorAll("select")
+.forEach(select => {
+
+select.selectedIndex = 0;
+
+});
+
+}else{
+
+alert("Error al guardar");
+
+}
+
+}catch(error){
+
+console.error(error);
+
+alert("Error de conexión");
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
