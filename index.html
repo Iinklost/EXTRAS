@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
@@ -55,6 +56,7 @@ select{
 padding:12px;
 border:1px solid #ccc;
 border-radius:8px;
+font-size:14px;
 }
 
 .fixed{
@@ -71,10 +73,16 @@ border-radius:8px;
 cursor:pointer;
 font-size:16px;
 font-weight:bold;
+transition:0.2s;
 }
 
 button:hover{
 background:#166534;
+}
+
+button:disabled{
+opacity:0.7;
+cursor:not-allowed;
 }
 
 </style>
@@ -128,6 +136,7 @@ readonly>
 </div>
 
 <div class="field">
+
 <label>Supervisor</label>
 
 <select id="supervisor">
@@ -149,6 +158,7 @@ MARIA FERNANDA VINCES LALUPU
 </div>
 
 <div class="field">
+
 <label>Condición</label>
 
 <select id="condicion">
@@ -190,6 +200,7 @@ FULL TIME
 </div>
 
 <div class="field">
+
 <label>OBS</label>
 
 <select id="obs">
@@ -224,6 +235,12 @@ const API_URL =
 "https://script.google.com/macros/s/AKfycbzNEvJk2IhFF1ayxZPobMsT5s1BJMTS6QwCqQz22Nm3GnKhleXxfWAhIalQhOXi5hjS/exec";
 
 async function guardarDatos(){
+
+const boton =
+document.querySelector("button");
+
+boton.disabled = true;
+boton.innerText = "Guardando...";
 
 const datos = {
 
@@ -277,7 +294,7 @@ await respuesta.json();
 
 if(resultado.resultado === "ok"){
 
-alert("Registro guardado");
+alert("Registro guardado correctamente");
 
 document
 .querySelectorAll("input")
@@ -309,6 +326,13 @@ alert("Error al guardar");
 console.error(error);
 
 alert("Error de conexión");
+
+}
+
+finally{
+
+boton.disabled = false;
+boton.innerText = "Guardar Registro";
 
 }
 
